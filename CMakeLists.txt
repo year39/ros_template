@@ -53,10 +53,14 @@ add_executable(srv_client src/srv_client.cpp)
 ament_target_dependencies(srv_client rclcpp)
 rosidl_target_interfaces(srv_client ${PROJECT_NAME} rosidl_typesupport_cpp)
 
+add_executable(par src/par.cpp)
+ament_target_dependencies(par rclcpp)
+
 install(TARGETS
   pub
   srv_server
   srv_client
+  par
   DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
